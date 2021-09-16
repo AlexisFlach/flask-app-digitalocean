@@ -15,6 +15,6 @@ jobs:
       - name: Docker build
         run: docker build -t flachens/flask-app .
       - name: Docker run
-        run: docker run -d -p 5000:5000 flachens/flask-app
+        run: docker run -d -p 5000:80 flachens/flask-app
 
       
