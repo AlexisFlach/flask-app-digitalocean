@@ -1,19 +1,20 @@
-name: digitalocean_deploy
+name: DIGITALOCEAN_DEPLOY
 
 on:
   push:
-    branches: [main]
-    
+    branches: [main]  
 jobs:
   Build:
     runs-on: self-hosted
     
     steps:
       - uses: actions/checkout@main
-      - name: Create .env
-        run: echo 'PORT=${{secrets.PORT }}' > .env
+      #- name: Create .env
+      #  run: echo 'PORT=${{secrets.PORT }}' > .env
         
-      - name: Run build
-        run: docker-compose up -d
+      - name: Docker build
+        run: docker build -t flachens/flask-app .
+      - name: Docker run
+        run: docker run -d -p 5000:5000 flachens/flask-app
 
       
