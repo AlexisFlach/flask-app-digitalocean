@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form action="/submit" method="POST">
+  <div class="form-group">
+    <h3>Name of tech you want to add</h3>
+    <input
+      type="text"
+      name="name"
+      placeholder="Your name"
+    />
+  </div>
+  
+  <input type="submit" value="Submit" class="btn" />
+</form>
+
+
+{% endblock %}
