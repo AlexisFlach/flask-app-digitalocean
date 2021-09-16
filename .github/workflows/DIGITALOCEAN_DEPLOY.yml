@@ -11,7 +11,8 @@ jobs:
       - uses: actions/checkout@main
       #- name: Create .env
       #  run: echo 'PORT=${{secrets.PORT }}' > .env
-        
+      - name: Kill containers
+        run: docker kill $(docker ps -q)
       - name: Docker build
         run: docker build -t flachens/flask-app .
       - name: Docker run
